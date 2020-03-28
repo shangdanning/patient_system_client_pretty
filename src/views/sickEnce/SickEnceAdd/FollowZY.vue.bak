@@ -1,0 +1,565 @@
+<template>
+  <div class="basicInfo">
+    <div v-if="userId && pageStatus === 'see'">
+      <!-- 患者详情 -->
+    </div>
+    <div v-else>
+      <!-- 新增患者基本信息 -->
+      <div class="followHeard">
+        <el-button class="addListBtn"
+                   type="primary"
+                   @click="addFollowList">添加随访记录</el-button>
+      </div>
+      <div class="clear">
+        <el-form :model="patientFollow"
+                 :rules="rules"
+                 ref="patientFollow"
+                 label-width="125px">
+          <div v-for="(item, index) in patientFollow.ary"
+               :key="index">
+            <div class="followTitle">
+              <span>随访记录{{ (index + 1) | numChangeChineseChar }}</span>
+              <p>
+                <!-- el-icon-arrow-up <i class="el-icon-arrow-down"></i>-->
+                <i class="el-icon-delete"
+                   @click="delFollowList(index)"></i>
+                <i :class="{
+                    'el-icon-arrow-down': item.isShow,
+                    'el-icon-arrow-up': !item.isShow
+                  }"
+                   @click="cutShow(item.isShow, index)"></i>
+              </p>
+            </div>
+            <div v-show="item.isShow">
+              <el-form-item label="随访日期："
+                            prop="followDate">
+                <el-date-picker type="date"
+                                placeholder="选择日期"
+                                v-model="item.followDate"></el-date-picker>
+              </el-form-item>
+              <el-form-item label="随访年龄："
+                            prop="followAge">
+                <el-input v-model="item.followAge"></el-input>
+              </el-form-item>
+              <el-form-item label="随访病程："
+                            prop="followSinceBegin">
+                <el-input v-model="item.followSinceBegin"></el-input>
+              </el-form-item>
+              <el-form-item label="遗留病症："
+                            prop="overSymptom">
+                <el-select v-model="item.overSymptom">
+                  <el-option v-for="item in overSymptom"
+                             :key="item.id"
+                             :label="item.dictDataName"
+                             :value="item.dictDataValue"></el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item label="MRS评分："
+                            prop="mrsGrade">
+                <el-input v-model="item.followDate"></el-input>
+              </el-form-item>
+              <el-form-item label="儿童脑功能评分："
+                            prop="brainGrade">
+                <el-input v-model="item.followDate"></el-input>
+              </el-form-item>
+              <el-form-item label="生活质量评分："
+                            prop="lifeGrade">
+                <el-input v-model="item.followDate"></el-input>
+              </el-form-item>
+              <el-form-item label="Gesell评分："
+                            prop="gesellGrade">
+                <el-input v-model="item.followDate"></el-input>
+              </el-form-item>
+              <el-form-item label="ADHD评分："
+                            prop="aDHDGrade">
+                <el-input v-model="item.followDate"></el-input>
+              </el-form-item>
+              <el-form-item label="脑电图："
+                            prop="chartJson">
+                <el-radio-group v-model="item.chartJson.isCheck">
+                  <el-radio :label="1">已查</el-radio>
+                  <el-radio :label="0">未查</el-radio>
+                </el-radio-group>
+              </el-form-item>
+              <div class="chartCheckResult"
+                   v-if="item.chartJson.isCheck === 1">
+                <el-form-item label="检查结果："
+                              prop="chartJson">
+                  <el-radio-group v-model="item.chartJson.checkResult">
+                    <el-radio :label="1">正常</el-radio>
+                    <el-radio :label="0">异常</el-radio>
+                  </el-radio-group>
+                  <!-- class="chartCheckResultAbnormal" -->
+                  <el-checkbox-group v-show="item.chartJson.checkResult === 0"
+                                     v-model="item.chartJson.chartAbnormal">
+                    <el-checkbox v-for="item in chartAbnormal"
+                                 :key="item.id"
+                                 :label="item.dictDataValue">{{ item.dictDataName }}</el-checkbox>
+                  </el-checkbox-group>
+                </el-form-item>
+                <el-form-item label="检查时间："
+                              prop="chartJson">
+                  <el-date-picker class="dblock"
+                                  type="date"
+                                  placeholder="选择日期"
+                                  v-model="item.chartJson.checkTime"></el-date-picker>
+                </el-form-item>
+                <el-form-item label="总体描述："
+                              prop="chartJson">
+                  <el-input type="textarea"
+                            v-model="item.chartJson.resultText"></el-input>
+                </el-form-item>
+              </div>
+              <el-form-item label="头颅MRI："
+                            prop="mriJson">
+                <el-radio-group v-model="item.mriJson.isCheck">
+                  <el-radio :label="1">已查</el-radio>
+                  <el-radio :label="0">未查</el-radio>
+                </el-radio-group>
+              </el-form-item>
+              <div class="chartCheckResult"
+                   v-if="item.mriJson.isCheck === 1">
+                <el-form-item label="检查结果："
+                              prop="mriJson">
+                  <el-radio-group v-model="item.mriJson.checkResult">
+                    <el-radio :label="1">正常</el-radio>
+                    <el-radio :label="0">异常</el-radio>
+                  </el-radio-group>
+                </el-form-item>
+                <el-form-item label="检查时间："
+                              prop="mriJson">
+                  <el-date-picker class="dblock"
+                                  type="date"
+                                  placeholder="选择日期"
+                                  v-model="item.mriJson.checkTime"></el-date-picker>
+                </el-form-item>
+                <el-form-item label="总体描述："
+                              prop="mriJson">
+                  <el-input type="textarea"
+                            v-model="item.mriJson.resultText"></el-input>
+                </el-form-item>
+              </div>
+              <el-form-item label="抗NMDAR抗体："
+                            prop="nmdaJson">
+                <el-radio-group v-model="item.nmdaJson.isCheck">
+                  <el-radio :label="1">已查</el-radio>
+                  <el-radio :label="0">未查</el-radio>
+                </el-radio-group>
+              </el-form-item>
+              <div class="chartCheckResult"
+                   v-if="item.nmdaJson.isCheck === 1">
+                <el-form-item label="检查结果："
+                              prop="nmdaJson">
+                  <el-radio-group v-model="item.nmdaJson.checkResult">
+                    <el-radio :label="1">阳性</el-radio>
+                    <el-radio :label="0">阴性</el-radio>
+                  </el-radio-group>
+                  <el-checkbox-group v-show="item.nmdaJson.checkResult === 0"
+                                     v-model="item.nmdaJson.nmdaPositive">
+                    <el-checkbox v-for="item in nmdaPositive"
+                                 :key="item.id"
+                                 :label="item.dictDataValue">{{ item.dictDataName }}</el-checkbox>
+                  </el-checkbox-group>
+                </el-form-item>
+                <el-form-item label="检查时间："
+                              prop="nmdaJson">
+                  <el-date-picker class="dblock"
+                                  type="date"
+                                  placeholder="选择日期"
+                                  v-model="item.nmdaJson.checkTime"></el-date-picker>
+                </el-form-item>
+                <el-form-item label="总体描述："
+                              prop="nmdaJson">
+                  <el-input type="textarea"
+                            v-model="item.nmdaJson.resultText"></el-input>
+                </el-form-item>
+              </div>
+              <el-form-item label="抗MOG抗体："
+                            prop="mogJson">
+                <el-radio-group v-model="item.mogJson.isCheck">
+                  <el-radio :label="1">已查</el-radio>
+                  <el-radio :label="0">未查</el-radio>
+                </el-radio-group>
+              </el-form-item>
+              <div class="chartCheckResult"
+                   v-if="item.mogJson.isCheck === 1">
+                <el-form-item label="检查结果："
+                              prop="mogJson">
+                  <el-radio-group v-model="item.mogJson.checkResult">
+                    <el-radio :label="1">阳性</el-radio>
+                    <el-radio :label="0">阴性</el-radio>
+                  </el-radio-group>
+                  <el-checkbox-group v-show="item.mogJson.checkResult === 0"
+                                     v-model="item.mogJson.mogPositive">
+                    <el-checkbox v-for="item in nmdaPositive"
+                                 :key="item.id"
+                                 :label="item.dictDataValue">{{ item.dictDataName }}</el-checkbox>
+                  </el-checkbox-group>
+                </el-form-item>
+                <el-form-item label="检查时间："
+                              prop="mogJson">
+                  <el-date-picker class="dblock"
+                                  type="date"
+                                  placeholder="选择日期"
+                                  v-model="item.mogJson.checkTime"></el-date-picker>
+                </el-form-item>
+                <el-form-item label="总体描述："
+                              prop="mogJson">
+                  <el-input type="textarea"
+                            v-model="item.mogJson.resultText"></el-input>
+                </el-form-item>
+              </div>
+              <el-form-item label="CD19+细胞："
+                            prop="cd19CellJson">
+                <el-radio-group v-model="item.cd19CellJson.isCheck">
+                  <el-radio :label="1">已查</el-radio>
+                  <el-radio :label="0">未查</el-radio>
+                </el-radio-group>
+              </el-form-item>
+              <div class="chartCheckResult"
+                   v-if="item.cd19CellJson.isCheck === 1">
+                <el-form-item label="检查结果："
+                              prop="cd19CellJson">
+                  <el-radio-group v-model="item.cd19CellJson.checkResult">
+                    <el-radio :label="0">正常</el-radio>
+                    <el-radio :label="1">降低</el-radio>
+                    <el-radio :label="2">升高</el-radio>
+                  </el-radio-group>
+                </el-form-item>
+                <el-form-item label="检查时间："
+                              prop="cd19CellJson">
+                  <el-date-picker class="dblock"
+                                  type="date"
+                                  placeholder="选择日期"
+                                  v-model="item.cd19CellJson.checkTime"></el-date-picker>
+                </el-form-item>
+                <el-form-item label="总体描述："
+                              prop="cd19CellJson">
+                  <el-input type="textarea"
+                            v-model="item.cd19CellJson.resultText"></el-input>
+                </el-form-item>
+              </div>
+              <el-form-item label="其它检查："
+                            prop="other">
+                <el-input v-model="item.other"></el-input>
+              </el-form-item>
+              <el-form-item label="维持用药："
+                            prop="grug">
+                <el-checkbox-group v-model="item.grug">
+                  <el-checkbox v-for="item in grug"
+                               :key="item.id"
+                               :label="item.dictDataValue">{{ item.dictDataName }}</el-checkbox>
+                </el-checkbox-group>
+                <el-input v-if="item.grug.length !== 0"
+                          type="textarea"
+                          v-model="item.grupText"></el-input>
+              </el-form-item>
+            </div>
+          </div>
+          <div class="followBottom">
+            <el-form-item class="float-right">
+              <el-button class="btn"
+                         type="primary"
+                         @click="submitForm('patientFollow')">提交</el-button>
+              <!-- <el-button @click="resetForm('patientFollow')">重置</el-button> -->
+            </el-form-item>
+          </div>
+        </el-form>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import { mapState } from "vuex";
+export default {
+  data () {
+    return {
+      // see 查看  edit 编辑
+      pageStatus: "see",
+      // patientFollow: {
+      //   followDate: "",
+      //   followAge: ""
+      // },
+      patientFollow: {
+        ary: [
+          {
+            ollowDate: "", // 随访日期  [必填]
+            followAge: "", // 随访年龄   [必填]
+            followSinceBegin: "", // 随访病成
+            overSymptom: "", // 遗留症状
+            mrsGrade: "", // mRS评分
+            brainGrade: "", // 儿童脑功能评分
+            lifeGrade: "", // 生活质量评分
+            gesellGrade: "", // Gesell评分
+            aDHDGrade: "", // ADHD评分
+            chartJson: {
+              checkTime: "2019-08-08",
+              isCheck: 1,
+              checkResult: 1,
+              chartAbnormal: [],
+              resultText: "文字描述"
+            }, // 脑电图JSON
+            mriJson: {
+              checkTime: "2019-08-08",
+              isCheck: 1,
+              checkResult: 1,
+              resultText: "文字描述"
+            }, // 头颅MRIJSON
+            nmdaJson: {
+              checkTime: "2019-08-08",
+              isCheck: 1,
+              checkResult: 1,
+              nmdaPositive: [],
+              resultText: "文字描述"
+            }, // 抗NMDAR抗体JSON
+            mogJson: {
+              checkTime: "2019-08-08",
+              isCheck: 1,
+              checkResult: 1,
+              mogPositive: [],
+              resultText: "文字描述"
+            }, // 抗MOG抗体JSON
+            cd19CellJson: {
+              checkTime: "2019-08-08",
+              isCheck: 1,
+              checkResult: 1,
+              resultText: "文字描述"
+            }, // CD19+细胞JSON
+            other: "", // 其它检查
+            grug: [], // 维持用药
+            grupText: "", // 维持用药文本
+            isShow: true
+          },
+          {
+            ollowDate: "", // 随访日期  [必填]
+            followAge: "", // 随访年龄   [必填]
+            followSinceBegin: "", // 随访病成
+            overSymptom: "", // 遗留症状
+            mrsGrade: "", // mRS评分
+            brainGrade: "", // 儿童脑功能评分
+            lifeGrade: "", // 生活质量评分
+            gesellGrade: "", // Gesell评分
+            aDHDGrade: "", // ADHD评分
+            chartJson: {
+              checkTime: "2019-08-08",
+              isCheck: 1,
+              checkResult: 1,
+              chartAbnormal: [],
+              resultText: "文字描述"
+            }, // 脑电图JSON
+            mriJson: {
+              checkTime: "2019-08-08",
+              isCheck: 1,
+              checkResult: 1,
+              resultText: "文字描述"
+            }, // 头颅MRIJSON
+            nmdaJson: {
+              checkTime: "2019-08-08",
+              isCheck: 1,
+              checkResult: 1,
+              nmdaPositive: [],
+              resultText: "文字描述"
+            }, // 抗NMDAR抗体JSON
+            mogJson: {
+              checkTime: "2019-08-08",
+              isCheck: 1,
+              checkResult: 1,
+              mogPositive: [],
+              resultText: "文字描述"
+            }, // 抗MOG抗体JSON
+            cd19CellJson: {
+              checkTime: "2019-08-08",
+              isCheck: 1,
+              checkResult: 1,
+              resultText: "文字描述"
+            }, // CD19+细胞JSON
+            other: "", // 其它检查
+            grug: [], // 维持用药
+            grupText: "", // 维持用药文本
+            isShow: false
+          }
+        ]
+      },
+      initPatientFollow: {
+        ollowDate: "", // 随访日期  [必填]
+        followAge: "", // 随访年龄   [必填]
+        followSinceBegin: "", // 随访病成
+        overSymptom: "", // 遗留症状
+        mrsGrade: "", // mRS评分
+        brainGrade: "", // 儿童脑功能评分
+        lifeGrade: "", // 生活质量评分
+        gesellGrade: "", // Gesell评分
+        aDHDGrade: "", // ADHD评分
+        chartJson: {
+          checkTime: "2019-08-08",
+          isCheck: 1,
+          checkResult: 1,
+          chartAbnormal: [],
+          resultText: "文字描述"
+        }, // 脑电图JSON
+        mriJson: {
+          checkTime: "2019-08-08",
+          isCheck: 1,
+          checkResult: 1,
+          resultText: "文字描述"
+        }, // 头颅MRIJSON
+        nmdaJson: {
+          checkTime: "2019-08-08",
+          isCheck: 1,
+          checkResult: 1,
+          nmdaPositive: [],
+          resultText: "文字描述"
+        }, // 抗NMDAR抗体JSON
+        mogJson: {
+          checkTime: "2019-08-08",
+          isCheck: 1,
+          checkResult: 1,
+          mogPositive: [],
+          resultText: "文字描述"
+        }, // 抗MOG抗体JSON
+        cd19CellJson: {
+          checkTime: "2019-08-08",
+          isCheck: 1,
+          checkResult: 0,
+          resultText: "文字描述"
+        }, // CD19+细胞JSON
+        other: "", // 其它检查
+        grug: [], // 维持用药
+        grupText: "", // 维持用药文本
+        isShow: true
+      },
+      rules: {}
+    };
+  },
+  computed: {
+    ...mapState({
+      userId: state => state.sickEnce.sickUserId,
+      overSymptom: state => state.system.dicData.overSymptom,
+      chartAbnormal: state => state.system.dicData.chartAbnormal,
+      nmdaPositive: state => state.system.dicData.nmdaPositive,
+      grug: state => state.system.dicData.grug
+    })
+  },
+  methods: {
+    // 打开关闭随访记录
+    cutShow (type, index) {
+      this.patientFollow.ary[index].isShow = !type;
+    },
+    // 删除随访记录
+    delFollowList (index) {
+      this.patientFollow.ary.splice(index, 1);
+      // console.log(this.patientFollow);
+    },
+    // 添加随访记录
+    addFollowList () {
+      this.patientFollow.ary.push(this.initPatientFollow);
+    },
+    // 提交随访记录
+    submitForm (formName) {
+      // console.log(this.patientFollow);
+      // this.$refs[formName].validate(valid => {
+      //   if (valid) {
+      //     this.addPatient();
+      //   } else {
+      //     console.log("error submit!!");
+      //     return false;
+      //   }
+      // });
+    },
+    addPatient () {
+      this.$http("sickAPI", "addPatient", this.patientFollow).then(data => {
+        console.log(data);
+      });
+    },
+    // 重置随访记录
+    resetForm (formName) {
+      this.$refs[formName].resetFields();
+    }
+  }
+};
+</script>
+<style lang="less" scoped>
+.followHeard {
+  position: fixed;
+  top: 114px;
+  right: 0;
+  z-index: 20;
+  width: calc(100% - 200px);
+  height: 50px;
+  background-color: #ffffff;
+  line-height: 50px;
+  border-bottom: 1px solid #e1e4e7;
+}
+.followBottom {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 20;
+  width: calc(100% - 200px);
+  height: 60px;
+  background-color: #ffffff;
+  line-height: 60px;
+  border-top: 1px solid #e1e4e7;
+  .btn {
+    position: absolute;
+    right: 50px;
+    top: 13px;
+  }
+}
+.clear {
+  clear: both;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.addListBtn {
+  position: absolute;
+  right: 37px;
+  top: 9px;
+}
+.basicInfo {
+  padding-top: 10px;
+  .el-textarea__inner {
+    width: 665px;
+  }
+}
+.followTitle {
+  margin: 10px 0;
+  height: 28px;
+  line-height: 28px;
+  text-align: left;
+  background: #e9f4fe;
+  position: relative;
+  padding: 0 30px;
+  font-weight: 700;
+  p {
+    margin: 0;
+    float: right;
+    i {
+      cursor: pointer;
+      font-size: 18px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+}
+.ml10 {
+  margin-left: 10px;
+}
+.dblock {
+  display: block;
+}
+.chartCheckResult {
+  margin-left: 75px;
+}
+.chartCheckResultAbnormal {
+  width: 392px;
+  display: inline-block;
+  margin-left: 10px;
+}
+.basicInfo {
+  padding: 0px;
+}
+.el-form-item {
+  padding-left: 30px;
+}
+</style>

@@ -1,0 +1,521 @@
+{
+    "getPatientListMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "pageNumber": 10,
+            "pageSize": 1,
+            "totalRow": 33,
+            "isMore": 1,
+            "totalPage": 33,
+            "startIndex": 9,
+            "list": [
+                {
+                    "id": 1,
+                    "patientNumber": "101010",
+                    "registerNumber": "101010",
+                    "cardNumber": "101010",
+                    "name": "吴晨",
+                    "gender": "男",
+                    "birthday": "1994-01-01",
+                    "beginAge": 21,
+                    "phone": "13501093200",
+                    "homeAddress": "北京大兴区",
+                    "mrowTime": "2019-11-15  22:00:00",
+                    "episodes": 2,
+                    "beginTimeArray": [
+                        "2019-10-01",
+                        "2019-11-01"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "patientNumber": "101010",
+                    "registerNumber": "101010",
+                    "cardNumber": "101010",
+                    "name": "吴晨",
+                    "gender": "男",
+                    "birthday": "1994-01-01",
+                    "beginAge": 21,
+                    "phone": "13501093200",
+                    "homeAddress": "北京大兴区",
+                    "mrowTime": "2019-11-15  22:00:00",
+                    "episodes": 2,
+                    "beginTimeArray": [
+                        "2019-10-01",
+                        "2019-11-01"
+                    ]
+                }
+            ]
+        }
+    },
+    "baseInfoMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "list": [
+                {
+                    "id": "123",
+                    "isFocus": 1,
+                    "peopleName": "张三",
+                    "credentialNo": "232330199310110010",
+                    "gender": "男",
+                    "nation": "汉族",
+                    "birthday": "1980-09-09",
+                    "householdAddress": " 户籍地址",
+                    "liveAddress": " 实际居住地址",
+                    "focus": "吸毒人员",
+                    "focusInfo": " 管控事由",
+                    "controlName": " 管控单位_公安机关名称",
+                    "dutyName": " 责任民警",
+                    "dutyPhoneNo": " 责任民警电话",
+                    "registerName": " 登记单位_公安机关",
+                    "registerTime": " 登记时间",
+                    "responsePicturePath": " 登记照片",
+                    "similarity": " 相似度",
+                    "operateUser": " 操作用户",
+                    "operateTime": " 操作时间"
+                }
+            ]
+        }
+    },
+    "addPatientMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "status": 1,
+            "reason": "添加成功",
+            "detail": {
+                "id": 1,
+                "name": "姓名",
+                "gender": 1,
+                "patientNumber": "1212",
+                "registerNumber": "1212",
+                "cardNumber": "1212",
+                "idCard": "121212121212",
+                "birthday": "2000-09-09",
+                "beginTime": "2019-09-09",
+                "beginAge": "19岁",
+                "phone": "12309090909",
+                "isForeign": 0,
+                "provinceCode": "",
+                "cityCode": "",
+                "countyCode": "",
+                "homeAddress": "北京丰台东大街",
+                "isIllSecondary": 0,
+                "illSecondaryText": "起病后人不正常了",
+                "hormone": "1-2",
+                "mycophenolate": "1-2",
+                "azathioprine": "1-2",
+                "tacrolimus": "1-2",
+                "encirclingA": "1-2",
+                "cyclophosphamide": "1-2",
+                "episodes": 2
+            }
+        }
+    },
+    "getPatientMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "name": "姓名",
+            "gender": 1,
+            "patientNumber": "1212",
+            "registerNumber": "1212",
+            "cardNumber": "1212",
+            "idCard": "121212121212",
+            "birthday": "2000-09-09",
+            "beginTime": "2019-09-09",
+            "beginAge": "19岁",
+            "phone": "12309090909",
+            "isForeign": 0,
+            "provinceCode": "",
+            "cityCode": "",
+            "countyCode": "",
+            "homeAddress": "北京丰台东大街",
+            "isIllSecondary": 0,
+            "illSecondaryText": "起病后人不正常了",
+            "hormone": "1-2",
+            "mycophenolate": "1-2",
+            "azathioprine": "1-2",
+            "tacrolimus": "1-2",
+            "encirclingA": "1-2",
+            "cyclophosphamide": "1-2",
+            "episodes": 2,
+            "beginTimeArray": [
+                "2019-10-01",
+                "2019-11-01"
+            ]
+        }
+    },
+    "addClinicalMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "status": 1,
+            "reason": "添加成功",
+            "list": [
+                {
+                    "id": 1,
+                    "episodes": 1,
+                    "enterHospitalTime": "2019-08-09",
+                    "leaveHospitalTime": "2019-08-19",
+                    "beginTime": "2010-12-01",
+                    "beginAge": "9岁",
+                    "beginIllType": "1",
+                    "isPrecursorInfected": 1,
+                    "precursorInfectedText": "前驱感染详情",
+                    "prodromicSymptomCode": "2,3",
+                    "prodromicSymptomInfo": "文字描述",
+                    "allSymptomCode": "4,5",
+                    "allSymptomInfo": "文字描述",
+                    "isICU": 0,
+                    "isCentralHypoventilation": 1,
+                    "centralHypoventilationType": "2",
+                    "isNasalFeeding": 0,
+                    "isRhabdomyolysis": 0,
+                    "isMergeTumour": 0,
+                    "mrsGrade": 100,
+                    "brainGrade": 99,
+                    "mrowTime": "2019-08-09 10:00:00"
+                },
+                {
+                    "id": 2,
+                    "episodes": 1,
+                    "enterHospitalTime": "2019-08-09",
+                    "leaveHospitalTime": "2019-08-19",
+                    "beginTime": "2010-12-01",
+                    "beginAge": "9岁",
+                    "beginIllType": "1",
+                    "isPrecursorInfected": 1,
+                    "precursorInfectedText": "前驱感染详情",
+                    "prodromicSymptomCode": "2,3",
+                    "prodromicSymptomInfo": "文字描述",
+                    "allSymptomCode": "4,5",
+                    "allSymptomInfo": "文字描述",
+                    "isICU": 0,
+                    "isCentralHypoventilation": 1,
+                    "centralHypoventilationType": "2",
+                    "isNasalFeeding": 0,
+                    "isRhabdomyolysis": 0,
+                    "isMergeTumour": 0,
+                    "mrsGrade": 100,
+                    "brainGrade": 99,
+                    "mrowTime": "2019-08-09 10:00:00"
+                }
+            ]
+        }
+    },
+    "getClinicalMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "list": [
+                {
+                    "id": 1,
+                    "episodes": 1,
+                    "enterHospitalTime": "2019-08-09",
+                    "leaveHospitalTime": "2019-08-19",
+                    "beginTime": "2010-12-01",
+                    "beginAge": "9岁",
+                    "beginIllType": 1,
+                    "isPrecursorInfected": 1,
+                    "precursorInfectedText": "前驱感染详情",
+                    "prodromicSymptomCode": "2,3",
+                    "prodromicSymptomInfo": "文字描述",
+                    "allSymptomCode": "4,5",
+                    "allSymptomInfo": "文字描述",
+                    "isICU": 0,
+                    "isCentralHypoventilation": "中枢性通气",
+                    "centralHypoventilationType": "气管插管",
+                    "isNasalFeeding": 0,
+                    "isRhabdomyolysis": 0,
+                    "isMergeTumour": 0,
+                    "mrsGrade": 100,
+                    "brainGrade": 99,
+                    "mrowTime": "2019-08-09 10:00:00"
+                },
+                {
+                    "id": 2,
+                    "episodes": 1,
+                    "enterHospitalTime": "2019-08-09",
+                    "leaveHospitalTime": "2019-08-19",
+                    "beginTime": "2010-12-01",
+                    "beginAge": "9岁",
+                    "beginIllType": 1,
+                    "isPrecursorInfected": 1,
+                    "precursorInfectedText": "前驱感染详情",
+                    "prodromicSymptomCode": "2,3",
+                    "prodromicSymptomInfo": "文字描述",
+                    "allSymptomCode": "4,5",
+                    "allSymptomInfo": "文字描述",
+                    "isICU": 0,
+                    "isCentralHypoventilation": "中枢性通气",
+                    "centralHypoventilationType": "气管插管",
+                    "isNasalFeeding": 0,
+                    "isRhabdomyolysis": 0,
+                    "isMergeTumour": 0,
+                    "mrsGrade": 100,
+                    "brainGrade": 99,
+                    "mrowTime": "2019-08-09 10:00:00"
+                }
+            ]
+        }
+    },
+    "addTreatmentMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "status": 1,
+            "reason": "添加成功",
+            "list": [
+                {
+                    "id": 1,
+                    "firstBeginTime": "2019-8-18",
+                    "isMppt": 1,
+                    "mpptText": "用药记录详情填写",
+                    "isSequential": 0,
+                    "sequentialText": "用药记录详情填写",
+                    "isIVIG": 0,
+                    "iVIGText": "用药记录详情填写",
+                    "isPlasma": 0,
+                    "plasmaText": "用药记录详情填写",
+                    "afterFirstMrsGrade": 100,
+                    "afterFirstBrainGrade": 80,
+                    "otherTimeGrade": 90,
+                    "isSecondTreat": 1,
+                    "secondBeginTime": "2019-09-18 10:00:00",
+                    "beginToSecondTimeInterval": 10,
+                    "firstToSecondTimeInterval": 11,
+                    "beforeSecondMrsGrade": 100,
+                    "beforeSecondBrainGrade": 200,
+                    "isDrugRituximab": true,
+                    "drugRituximabJson": "{\"drugcount\":\"2\",\"beforeTreatCD19State\":\"1\",\"beforeTreatCD19StateText\":\"10%\",\"GradeList\":[{\"name\":\"一\",\"mRSGrade\":\"2\",\"brainGrade\":\"2\",\"cD19State\":\"2\",\"cD19StateText\":\"22\"},{\"name\":\"二\",\"mRSGrade\":\"22\",\"brainGrade\":\"33\",\"cD19State\":\"1\",\"cD19StateText\":\"11\"},{\"name\":\"三\",\"mRSGrade\":\"1\",\"brainGrade\":\"1\",\"cD19State\":\"3\",\"cD19StateText\":\"22\"},{\"name\":\"四\",\"mRSGrade\":\"22\",\"brainGrade\":\"33\",\"cD19State\":\"3\",\"cD19StateText\":\"44\"}]}",
+                    "isDrugCTX": true,
+                    "isDrugMMF": true,
+                    "isDrugAzathioprine": 0,
+                    "isDrugMtx": 0,
+                    "isDrugOther": 0,
+                    "cTXDrugText": "无",
+                    "mMFDrugText": "无",
+                    "azathioprineDrugText": "无",
+                    "mtxDrugText": "无",
+                    "drugText": "先用1颗药",
+                    "leaveMrsGrade": 200,
+                    "leaveBrainGrade": 200,
+                    "mrowTime": "2019-11-16 10:00:00"
+                }
+            ]
+        }
+    },
+    "getTreatmentMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "list": [
+                {
+                    "id": 1,
+                    "firstBeginTime": "2019-8-18",
+                    "isMppt": 1,
+                    "mpptText": "用药记录详情填写",
+                    "isSequential": 0,
+                    "sequentialText": "用药记录详情填写",
+                    "isIVIG": 0,
+                    "iVIGText": "用药记录详情填写",
+                    "isPlasma": 0,
+                    "plasmaText": "用药记录详情填写",
+                    "afterFirstMrsGrade": 100,
+                    "afterFirstBrainGrade": 80,
+                    "otherTimeGrade": 90,
+                    "isSecondTreat": 1,
+                    "secondBeginTime": "2019-09-18 10:00:00",
+                    "beginToSecondTimeInterval": 10,
+                    "firstToSecondTimeInterval": 11,
+                    "beforeSecondMrsGrade": 100,
+                    "beforeSecondBrainGrade": 200,
+                    "isDrugRituximab": true,
+                    "drugRituximabJson": "{\"drugcount\":\"2\",\"beforeTreatCD19State\":\"1\",\"beforeTreatCD19StateText\":\"10%\",\"GradeList\":[{\"name\":\"一\",\"mRSGrade\":\"2\",\"brainGrade\":\"2\",\"cD19State\":\"2\",\"cD19StateText\":\"22\"},{\"name\":\"二\",\"mRSGrade\":\"22\",\"brainGrade\":\"33\",\"cD19State\":\"1\",\"cD19StateText\":\"11\"},{\"name\":\"三\",\"mRSGrade\":\"1\",\"brainGrade\":\"1\",\"cD19State\":\"3\",\"cD19StateText\":\"22\"},{\"name\":\"四\",\"mRSGrade\":\"22\",\"brainGrade\":\"33\",\"cD19State\":\"3\",\"cD19StateText\":\"44\"}]}",
+                    "isDrugCTX": true,
+                    "isDrugMMF": true,
+                    "isDrugAzathioprine": 0,
+                    "isDrugMtx": 0,
+                    "isDrugOther": 0,
+                    "cTXDrugText": "无",
+                    "mMFDrugText": "无",
+                    "azathioprineDrugText": "无",
+                    "mtxDrugText": "无",
+                    "drugText": "先用1颗药",
+                    "leaveMrsGrade": 200,
+                    "leaveBrainGrade": 200,
+                    "mrowTime": "2019-11-16 10:00:00"
+                }
+            ]
+        }
+    },
+    "addInspectMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "status": 1,
+            "reason": "添加成功",
+            "list": [
+                {
+                    "id": 1,
+                    "cellsJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"\"},{\"id\":2,\"checkTime\":\"2019-11-21\",\"checkResult\":0,\"resultText\":\"222\"}]",
+                    "proteinJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":0,\"resultText\":\"222\"}]",
+                    "sugarJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"\"},{\"id\":2,\"checkTime\":\"2019-11-23\",\"checkResult\":0,\"resultText\":\"333\"}]",
+                    "chartJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"555\",\"chartAbnormal\":[\"4\",\"3\"]},{\"id\":2,\"checkTime\":\"2019-11-25\",\"checkResult\":1,\"resultText\":\"666\",\"chartAbnormal\":[\"1\",\"2\"]}]",
+                    "mriJson": "0",
+                    "nmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "sobJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":\"2\",\"resultText\":\"222\"}]",
+                    "mogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumNmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumMogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "medicineGene": "777",
+                    "other": "888",
+                    "mrowTime": "2019-11-16 10:00:00"
+                },
+                {
+                    "id": 2,
+                    "cellsJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"\"},{\"id\":2,\"checkTime\":\"2019-11-21\",\"checkResult\":0,\"resultText\":\"222\"}]",
+                    "proteinJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":0,\"resultText\":\"222\"}]",
+                    "sugarJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"\"},{\"id\":2,\"checkTime\":\"2019-11-23\",\"checkResult\":0,\"resultText\":\"333\"}]",
+                    "chartJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"555\",\"chartAbnormal\":[\"4\",\"3\"]},{\"id\":2,\"checkTime\":\"2019-11-25\",\"checkResult\":1,\"resultText\":\"666\",\"chartAbnormal\":[\"1\",\"2\"]}]",
+                    "mriJson": "0",
+                    "nmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "sobJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":\"2\",\"resultText\":\"222\"}]",
+                    "mogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumNmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumMogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "medicineGene": "777",
+                    "other": "888",
+                    "mrowTime": "2019-11-16 10:00:00"
+                }
+            ]
+        }
+    },
+    "getInspectMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "list": [
+                {
+                    "id": 1,
+                    "cellsJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"\"},{\"id\":2,\"checkTime\":\"2019-11-21\",\"checkResult\":0,\"resultText\":\"222\"}]",
+                    "proteinJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":0,\"resultText\":\"222\"}]",
+                    "sugarJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"\"},{\"id\":2,\"checkTime\":\"2019-11-23\",\"checkResult\":0,\"resultText\":\"333\"}]",
+                    "chartJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"555\",\"chartAbnormal\":[\"4\",\"3\"]},{\"id\":2,\"checkTime\":\"2019-11-25\",\"checkResult\":1,\"resultText\":\"666\",\"chartAbnormal\":[\"1\",\"2\"]}]",
+                    "mriJson": "0",
+                    "nmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "sobJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":\"2\",\"resultText\":\"222\"}]",
+                    "mogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumNmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumMogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "medicineGene": "777",
+                    "other": "888",
+                    "mrowTime": "2019-11-16 10:00:00"
+                },
+                {
+                    "id": 2,
+                    "cellsJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"\"},{\"id\":2,\"checkTime\":\"2019-11-21\",\"checkResult\":0,\"resultText\":\"222\"}]",
+                    "proteinJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":0,\"resultText\":\"222\"}]",
+                    "sugarJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"\"},{\"id\":2,\"checkTime\":\"2019-11-23\",\"checkResult\":0,\"resultText\":\"333\"}]",
+                    "chartJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":1,\"resultText\":\"555\",\"chartAbnormal\":[\"4\",\"3\"]},{\"id\":2,\"checkTime\":\"2019-11-25\",\"checkResult\":1,\"resultText\":\"666\",\"chartAbnormal\":[\"1\",\"2\"]}]",
+                    "mriJson": "0",
+                    "nmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "sobJson": "[{\"id\":1,\"checkTime\":\"2019-11-21\",\"checkResult\":\"2\",\"resultText\":\"222\"}]",
+                    "mogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumNmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumMogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "medicineGene": "777",
+                    "other": "888",
+                    "mrowTime": "2019-11-16 10:00:00"
+                }
+            ]
+        }
+    },
+    "addFollowMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "status": 1,
+            "reason": "添加成功",
+            "list": [
+                {
+                    "id": 1,
+                    "followDate": "2019-08-09",
+                    "followAge": 14,
+                    "followSinceBegin": "1",
+                    "overSymptom": "1",
+                    "overSymptomText": "文本",
+                    "mrsGrade": 100,
+                    "brainGrade": 90,
+                    "lifeGrade": 10,
+                    "gesellGrade": 100,
+                    "aDHDGrade": 100,
+                    "chartJson": "[{\"id\":1,\"checkTime\":\"2019-11-25\",\"checkResult\":0,\"resultText\":\"222\",\"chartAbnormal\":[\"1\",\"2\",\"3\",\"4\"]}]",
+                    "mriJson": "[{\"id\":1,\"checkTime\":\"2019-11-24\",\"checkResult\":0,\"resultText\":\"222\"},{\"id\":2,\"checkTime\":\"2019-11-25\",\"checkResult\":1,\"resultText\":\"\"}]",
+                    "nmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "mogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumNmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumMogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "dqJson": "[{\"id\":1,\"checkTime\":\"2019-12-03\",\"resultText\":\"111\"},{\"id\":2,\"checkTime\":\"2019-12-19\",\"resultText\":\"1122\"}]",
+                    "adhdJson": "[{\"id\":1,\"checkTime\":\"2019-11-24\",\"checkResult\":0,\"resultText\":\"222\"},{\"id\":2,\"checkTime\":\"2019-11-25\",\"checkResult\":1,\"resultText\":\"\"}]",
+                    "cd19CellJson": "[{\"id\":1,\"checkTime\":\"2019-11-25\",\"checkResult\":\"2\",\"resultText\":\"444\"}]",
+                    "other": "其它",
+                    "grug": "1,2,3",
+                    "iVIGText": "维持用药文本",
+                    "methylSrongText": "维持用药文本",
+                    "hormoneText": "维持用药文本",
+                    "mmfText": "",
+                    "rtxText": "",
+                    "ctxText": "",
+                    "azaText": "",
+                    "grugText": "",
+                    "mrowTime": "2019-11-16 10:00:00"
+                }
+            ]
+        }
+    },
+    "getFollowMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "list": [
+                {
+                    "id": 1,
+                    "followDate": "2019-08-09",
+                    "followAge": 14,
+                    "followSinceBegin": "1",
+                    "overSymptom": "1",
+                    "overSymptomText": "文本",
+                    "mrsGrade": 100,
+                    "brainGrade": 90,
+                    "lifeGrade": 10,
+                    "gesellGrade": 100,
+                    "aDHDGrade": 100,
+                    "chartJson": "[{\"id\":1,\"checkTime\":\"2019-11-25\",\"checkResult\":0,\"resultText\":\"222\",\"chartAbnormal\":[\"1\",\"2\",\"3\",\"4\"]}]",
+                    "mriJson": "[{\"id\":1,\"checkTime\":\"2019-11-24\",\"checkResult\":0,\"resultText\":\"222\"},{\"id\":2,\"checkTime\":\"2019-11-25\",\"checkResult\":1,\"resultText\":\"\"}]",
+                    "nmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "mogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumNmdaJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "serumMogJson": "[{\"id\":1,\"checkTime\":\"2019-12-18\",\"checkResult\":0,\"resultText\":\"\"}]",
+                    "dqJson": "[{\"id\":1,\"checkTime\":\"2019-12-03\",\"resultText\":\"111\"},{\"id\":2,\"checkTime\":\"2019-12-19\",\"resultText\":\"1122\"}]",
+                    "adhdJson": "[{\"id\":1,\"checkTime\":\"2019-11-24\",\"checkResult\":0,\"resultText\":\"222\"},{\"id\":2,\"checkTime\":\"2019-11-25\",\"checkResult\":1,\"resultText\":\"\"}]",
+                    "cd19CellJson": "[{\"id\":1,\"checkTime\":\"2019-11-25\",\"checkResult\":\"2\",\"resultText\":\"444\"}]",
+                    "other": "其它",
+                    "grug": "1,2,3,4",
+                    "iVIGText": "维持用药文本",
+                    "methylSrongText": "维持用药文本",
+                    "hormoneText": "维持用药文本",
+                    "mmfText": "11111",
+                    "rtxText": "",
+                    "ctxText": "",
+                    "azaText": "",
+                    "grugText": "",
+                    "mrowTime": "2019-11-16 10:00:00"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,937 @@
+{
+    "systemMenuMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "list": [
+                {
+                    "name": "患者登记",
+                    "id": "sickEnce",
+                    "icon": "th-large",
+                    "sub": [
+                        {
+                            "name": "登记列表",
+                            "componentName": "/sickEnce/SickEnceList"
+                        },
+                        {
+                            "name": "新增患者",
+                            "componentName": "/sickEnce/SickEnceAdd"
+                        },
+                        {
+                            "name": "病情统计",
+                            "componentName": "/sickEnce/SickEnceStatic"
+                        }
+                    ]
+                },
+                {
+                    "name": "系统配置",
+                    "id": "system",
+                    "icon": "cog",
+                    "sub": [
+                        {
+                            "name": "系统字典",
+                            "componentName": "/system/SystemDic"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "getDicMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": [
+            {
+                "dictCode": "gender",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "男"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "女"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "其他"
+                    }
+                ]
+            },
+            {
+                "dictCode": "mogState",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "0",
+                        "dictDataName": "阴性"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "1",
+                        "dictDataName": "阳性"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "2",
+                        "dictDataName": "未查"
+                    }
+                ]
+            },
+            {
+                "dictCode": "mycophenolateType",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "ABCB1"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "IL10"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "UGT1A8"
+                    },
+                    {
+                        "id": 4,
+                        "dictDataValue": "4",
+                        "dictDataName": "UGT2B7"
+                    }
+                ]
+            },
+            {
+                "dictCode": "mycophenolateType1",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "AA"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "AC"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "CC"
+                    }
+                ]
+            },
+            {
+                "dictCode": "mycophenolateType2",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "GG"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "GT"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "TT"
+                    }
+                ]
+            },
+            {
+                "dictCode": "mycophenolateType3",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "CC"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "CG"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "GG"
+                    }
+                ]
+            },
+            {
+                "dictCode": "mycophenolateType4",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "AA"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "AG"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "GG"
+                    }
+                ]
+            },
+            {
+                "dictCode": "azathioprineType",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "TPMT*3B"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "TPMT*3C"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "NUDT15"
+                    },
+                    {
+                        "id": 4,
+                        "dictDataValue": "4",
+                        "dictDataName": "ITPA"
+                    }
+                ]
+            },
+            {
+                "dictCode": "azathioprineType1",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "GG"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "AA"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "GA"
+                    }
+                ]
+            },
+            {
+                "dictCode": "azathioprineType2",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "A1"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "A2"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "A3"
+                    }
+                ]
+            },
+            {
+                "dictCode": "azathioprineType3",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "CC"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "CT"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "TT"
+                    }
+                ]
+            },
+            {
+                "dictCode": "azathioprineType4",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "AA"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "AC"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "CC"
+                    }
+                ]
+            },
+            {
+                "dictCode": "tacrolimusType",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "CYP3A5*3"
+                    }
+                ]
+            },
+            {
+                "dictCode": "tacrolimusType1",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "CC"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "CT"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "TT"
+                    }
+                ]
+            },
+            {
+                "dictCode": "encirclingAType",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "CYP3A5*3"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "ABCB1"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "IMPDH2"
+                    },
+                    {
+                        "id": 4,
+                        "dictDataValue": "4",
+                        "dictDataName": "CYP3A4"
+                    }
+                ]
+            },
+            {
+                "dictCode": "encirclingAType1",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "CC"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "CT"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "TT"
+                    }
+                ]
+            },
+            {
+                "dictCode": "encirclingAType2",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "GG"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "AG"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "AA"
+                    }
+                ]
+            },
+            {
+                "dictCode": "encirclingAType3",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "AA"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "AG"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "GG"
+                    }
+                ]
+            },
+            {
+                "dictCode": "encirclingAType4",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "GG"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "AG"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "AA"
+                    }
+                ]
+            },
+            {
+                "dictCode": "cyclophosphamideType",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "GSTP1"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "MTHFR"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "TP53"
+                    },
+                    {
+                        "id": 4,
+                        "dictDataValue": "4",
+                        "dictDataName": "PNPLA3"
+                    },
+                    {
+                        "id": 5,
+                        "dictDataValue": "5",
+                        "dictDataName": "SOD2"
+                    }
+                ]
+            },
+            {
+                "dictCode": "cyclophosphamideType1",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "AA"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "AG"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "GG"
+                    }
+                ]
+            },
+            {
+                "dictCode": "cyclophosphamideType2",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "CC"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "CT"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "TT"
+                    }
+                ]
+            },
+            {
+                "dictCode": "cyclophosphamideType3",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "CC"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "CG"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "GG"
+                    }
+                ]
+            },
+            {
+                "dictCode": "cyclophosphamideType4",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "CC"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "CG"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "GG"
+                    }
+                ]
+            },
+            {
+                "dictCode": "cyclophosphamideType5",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "AA"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "AG"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "GG"
+                    }
+                ]
+            },
+            {
+                "dictCode": "hormoneType",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "ABCB1"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "PAI-1"
+                    }
+                ]
+            },
+            {
+                "dictCode": "hormoneType1",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "TT"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "TC"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "CC"
+                    }
+                ]
+            },
+            {
+                "dictCode": "hormoneType2",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "5G/5G"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "5G/4G"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "4G/4G"
+                    }
+                ]
+            },
+            {
+                "dictCode": "beginIllType",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "急性"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "亚急性"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "隐匿"
+                    },
+                    {
+                        "id": 4,
+                        "dictDataValue": "4",
+                        "dictDataName": "慢性"
+                    }
+                ]
+            },
+            {
+                "dictCode": "prodromicSymptomCode",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "精神行为异常"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "癫痫发作"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "近事记忆下降/认知倒退"
+                    },
+                    {
+                        "id": 4,
+                        "dictDataValue": "4",
+                        "dictDataName": "睡眠障碍"
+                    },
+                    {
+                        "id": 5,
+                        "dictDataValue": "5",
+                        "dictDataName": "言语障碍/缄默"
+                    },
+                    {
+                        "id": 6,
+                        "dictDataValue": "6",
+                        "dictDataName": "运动障碍/不自主运动"
+                    },
+                    {
+                        "id": 7,
+                        "dictDataValue": "7",
+                        "dictDataName": "意识水平下降/昏迷"
+                    },
+                    {
+                        "id": 8,
+                        "dictDataValue": "8",
+                        "dictDataName": "自主神经功能障碍"
+                    },
+                    {
+                        "id": 9,
+                        "dictDataValue": "9",
+                        "dictDataName": "其他"
+                    }
+                ]
+            },
+            {
+                "dictCode": "allSymptomCode",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "精神行为异常"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "癫痫发作"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "近事记忆下降/认知倒退"
+                    },
+                    {
+                        "id": 4,
+                        "dictDataValue": "4",
+                        "dictDataName": "睡眠障碍"
+                    },
+                    {
+                        "id": 5,
+                        "dictDataValue": "5",
+                        "dictDataName": "言语障碍/缄默"
+                    },
+                    {
+                        "id": 6,
+                        "dictDataValue": "6",
+                        "dictDataName": "运动障碍/不自主运动"
+                    },
+                    {
+                        "id": 7,
+                        "dictDataValue": "7",
+                        "dictDataName": "意识水平下降/昏迷"
+                    },
+                    {
+                        "id": 8,
+                        "dictDataValue": "8",
+                        "dictDataName": "自主神经功能障碍"
+                    },
+                    {
+                        "id": 9,
+                        "dictDataValue": "9",
+                        "dictDataName": "其他"
+                    }
+                ]
+            },
+            {
+                "dictCode": "centralHypoventilationType",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "NCPAP"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "气管插管"
+                    }
+                ]
+            },
+            {
+                "dictCode": "nmdaPositive",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "血清"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "CSF"
+                    }
+                ]
+            },
+            {
+                "dictCode": "chartAbnormal",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "δ刷"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "α-θ节律"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "癫痫放电"
+                    },
+                    {
+                        "id": 4,
+                        "dictDataValue": "4",
+                        "dictDataName": "慢波"
+                    }
+                ]
+            },
+            {
+                "dictCode": "sobResult",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "阳性"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "可疑阳性"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "阴性"
+                    }
+                ]
+            },
+            {
+                "dictCode": "mogPositive",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "血清"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "CSF"
+                    }
+                ]
+            },
+            {
+                "dictCode": "overSymptom",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "癫痫发作"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "精神行为异常"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "认知障碍"
+                    },
+                    {
+                        "id": 4,
+                        "dictDataValue": "4",
+                        "dictDataName": "语言障碍"
+                    },
+                    {
+                        "id": 5,
+                        "dictDataValue": "5",
+                        "dictDataName": "睡眠障碍"
+                    },
+                    {
+                        "id": 6,
+                        "dictDataValue": "6",
+                        "dictDataName": "ADHD"
+                    },
+                    {
+                        "id": 7,
+                        "dictDataValue": "7",
+                        "dictDataName": "其他"
+                    }
+                ]
+            },
+            {
+                "dictCode": "grug",
+                "list": [
+                    {
+                        "id": 1,
+                        "dictDataValue": "1",
+                        "dictDataName": "丙球冲击"
+                    },
+                    {
+                        "id": 2,
+                        "dictDataValue": "2",
+                        "dictDataName": "甲强冲击"
+                    },
+                    {
+                        "id": 3,
+                        "dictDataValue": "3",
+                        "dictDataName": "激素续贯口服"
+                    },
+                    {
+                        "id": 4,
+                        "dictDataValue": "4",
+                        "dictDataName": "MMF"
+                    },
+                    {
+                        "id": 5,
+                        "dictDataValue": "5",
+                        "dictDataName": "RTX"
+                    },
+                    {
+                        "id": 6,
+                        "dictDataValue": "6",
+                        "dictDataName": "CTX"
+                    },
+                    {
+                        "id": 7,
+                        "dictDataValue": "7",
+                        "dictDataName": "AZA"
+                    },
+                    {
+                        "id": 8,
+                        "dictDataValue": "8",
+                        "dictDataName": "其他"
+                    }
+                ]
+            }
+        ]
+    },
+    "loginMock": {
+        "resultCode": 200,
+        "resultMessage": "OK",
+        "data": {
+            "user": {
+                "id": 1,
+                "account": "admin",
+                "password": "f64efc94f0f50c44af1ec7bf859195cd",
+                "showName": "超级管理员",
+                "orgId": 1,
+                "orgName": "上海市",
+                "loginStatus": 1,
+                "status": 1,
+                "mrowTime": "2019-08-29 08:04:53.0",
+                "userTheme": "default",
+                "picUrl": null,
+                "admin": true
+            },
+            "status": "success"
+        }
+    }
+}

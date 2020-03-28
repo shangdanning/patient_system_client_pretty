@@ -1,0 +1,339 @@
+<template>
+  <div class="listMain">
+    <div class="searchCondition">
+      <div class="listHeard">
+        <span>患者列表</span>
+        <el-button class="addPatientBtn"
+                   @click="addPatient"
+                   type="primary">添加患者</el-button>
+      </div>
+      <div class="listMainContent">
+        <label class="listInput">
+          姓名：
+          <el-input v-model="params.name"
+                    placeholder="请输入内容"></el-input>
+        </label>
+        <label class="listInput">
+          门诊病历号：
+          <el-input v-model="params.registerNumber"
+                    placeholder="请输入内容"></el-input>
+        </label>
+        <label class="listInput">
+          病案号：
+          <el-input v-model="params.patientNumber"
+                    placeholder="请输入内容"></el-input>
+        </label>
+        <label class="listInput">
+          起病年龄：
+          <el-input v-model="params.beginAge"
+                    placeholder="请输入内容"></el-input>
+        </label>
+        <label class="listInput">
+          末次随访年龄：
+          <el-input v-model="params.lastFollowAge"
+                    placeholder="请输入内容"></el-input>
+        </label>
+        <label class="listInput">
+          发作次数：
+          <el-input v-model="params.episodes"
+                    placeholder="请输入内容"></el-input>
+        </label>
+        <label class="listInput">
+          MOG抗体：
+          <el-input v-model="params.mogState"
+                    placeholder="请输入内容"></el-input>
+        </label>
+        <label class="listInput">
+          是否病脑后发：
+          <el-select v-model="params.isIllSecondary"
+                     filterable
+                     placeholder="请选择">
+            <el-option label="全部"
+                       value=""> </el-option>
+            <el-option label="是"
+                       value="1"> </el-option>
+            <el-option label="否"
+                       value="0"> </el-option>
+          </el-select>
+        </label>
+        <label class="listInput">
+          是否使用二线治疗：
+          <el-select v-model="params.isSecondTreat"
+                     filterable
+                     placeholder="请选择">
+            <el-option label="全部"
+                       value=""> </el-option>
+            <el-option label="是"
+                       value="1"> </el-option>
+            <el-option label="否"
+                       value="0"> </el-option>
+          </el-select>
+        </label>
+        <el-button class="searchbtn"
+                   type="primary"
+                   @click="searchList"
+                   icon="el-icon-search"></el-button>
+      </div>
+    </div>
+    <el-table :data="tableData"
+              width="100%"
+              :row-class-name="tableRowClassName"
+              :header-cell-style="{ background: '#D4ECFF' }">
+      <!-- <el-table-column v-for="(item,index) in tableHeard"
+                       :key="index"
+                       :prop="item.params"
+                       :label="item.label"
+                       :min-width="item.width">
+      </el-table-column> -->
+      <el-table-column prop="registerNumber"
+                       label="病历号"
+                       min-width="10%">
+      </el-table-column>
+      <el-table-column prop="patientNumber"
+                       label="病案号"
+                       min-width="10%">
+      </el-table-column>
+      <el-table-column prop="name"
+                       label="姓名"
+                       min-width="10%">
+      </el-table-column>
+      <el-table-column prop="gender"
+                       label="性别"
+                       min-width="10%">
+      </el-table-column>
+      <el-table-column prop="birthday"
+                       label="出生日期"
+                       min-width="10%">
+      </el-table-column>
+      <el-table-column prop="beginAge"
+                       label="起病年龄"
+                       min-width="10%">
+      </el-table-column>
+      <el-table-column prop="phone"
+                       label="联系电话"
+                       min-width="10%">
+      </el-table-column>
+      <el-table-column fixed="right"
+                       label="操作"
+                       min-width="5%">
+        <template slot-scope="scope">
+          <el-button @click="handleClick(scope.row, 'look')"
+                     type="text"
+                     size="small">查看</el-button>
+          <el-button @click="handleClick(scope.row, 'edit')"
+                     type="text"
+                     size="small">编辑</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <el-pagination class="paging"
+                   @size-change="handleSizeChange"
+                   @current-change="handleCurrentChange"
+                   :current-page="params.pageNumber"
+                   :page-size="params.pageSize"
+                   :total="totalRow"
+                   layout="total, sizes, prev, pager, next, jumper"
+                   :page-sizes="[10, 50, 100]">
+    </el-pagination>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      // 分页总页数
+      totalRow: 100,
+      params: {
+        name: "", // 姓名
+        registerNumber: "", // 病例好
+        patientNumber: "", // 病案号
+        beginAge: "", // 起病年龄
+        lastFollowAge: "", // 末次随访年龄
+        episodes: "", // 发作次数
+        mogState: "", // mog抗体
+        isIllSecondary: "", // 是否病脑后发
+        isSecondTreat: "", // 是否使用二线治疗
+        pageNumber: 1,
+        pageSize: 10
+      },
+      tableHeard: [
+        {
+          label: "病历号",
+          param: "registerNumber",
+          width: "10%"
+        },
+        {
+          label: "病案号",
+          param: "patientNumber",
+          width: "8%"
+        },
+        {
+          label: "姓名",
+          param: "name",
+          width: "8%"
+        },
+        {
+          label: "性别",
+          param: "gender",
+          width: "8%"
+        },
+        {
+          label: "出生日期",
+          param: "birthday",
+          width: "8%"
+        },
+        {
+          label: "起病年龄",
+          param: "beginAge",
+          width: "8%"
+        },
+        {
+          label: "联系电话",
+          param: "phone",
+          width: "8%"
+        },
+        {
+          label: "家庭住址",
+          param: "homeAddress",
+          width: "8%"
+        }
+      ],
+      tableData: [
+        {
+          patientNumber: "101010",
+          registerNumber: "101010",
+          name: "吴晨",
+          gender: "男",
+          birthday: "1994-01-01",
+          beginAge: 21,
+          phone: "13501093200",
+          homeAddress: "北京大兴区"
+        },
+        {
+          patientNumber: "101010",
+          registerNumber: "101010",
+          name: "吴晨",
+          gender: "男",
+          birthday: "1994-01-01",
+          beginAge: 21,
+          phone: "13501093200",
+          homeAddress: "北京大兴区"
+        },
+        {
+          patientNumber: "101010",
+          registerNumber: "101010",
+          name: "吴晨",
+          gender: "男",
+          birthday: "1994-01-01",
+          beginAge: 21,
+          phone: "13501093200",
+          homeAddress: "北京大兴区"
+        },
+        {
+          patientNumber: "101010",
+          registerNumber: "101010",
+          name: "吴晨",
+          gender: "男",
+          birthday: "1994-01-01",
+          beginAge: 21,
+          phone: "13501093200",
+          homeAddress: "北京大兴区"
+        }
+      ]
+    };
+  },
+  created() {
+    // this.$http("sickAPI", "baseInfo", { name: "sdn" }).then(data => {
+    //   // console.log(data);
+    // });
+  },
+  methods: {
+    // 查询
+    searchList() {
+      console.log("搜索列表");
+      this.listColor();
+    },
+    // 添加患者
+    addPatient() {
+      // console.log("添加患者");
+    },
+    // 列表添加类名
+    tableRowClassName({ row, rowIndex }) {
+      if (rowIndex % 2 === 0) {
+        return "single-row";
+      } else {
+        return "doubel-row";
+      }
+    },
+    // 添加列表样式
+    listColor() {
+      let listColor = document.getElementsByClassName("doubel-row");
+      listColor.forEach(item => {
+        item.style.backgroundColor = "#F8FAFB";
+      });
+    },
+    handleSizeChange(val) {
+      // console.log(val);
+    },
+    handleCurrentChange(val) {
+      // console.log(val);
+    },
+    handleClick(data, type) {
+      if (type === "look") {
+        // console.log("查看");
+      } else {
+        // console.log("编辑");
+      }
+      // console.log(data);
+    }
+  }
+};
+</script>
+<style lang="less" scoped>
+.el-main {
+  padding: 0 !important;
+}
+.searchCondition {
+  position: relative;
+  overflow: hidden;
+}
+.listHeard {
+  height: 50px;
+  line-height: 50px;
+  background: #f5f5f5;
+  text-align: left;
+  position: fixed;
+  // width: 100%;
+  width: calc(100% - 200px);
+  top: 60px;
+  z-index: 111;
+  span {
+    padding-left: 10px;
+  }
+}
+.listMainContent {
+  margin-top: 50px;
+}
+.listInput {
+  padding: 10px;
+  float: left;
+  .el-input {
+    width: 200px;
+  }
+}
+.searchbtn {
+  margin-top: 10px;
+  float: left;
+}
+.addPatientBtn {
+  position: absolute;
+  right: 40px;
+  top: 10px;
+}
+.paging {
+  position: absolute;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+</style>
